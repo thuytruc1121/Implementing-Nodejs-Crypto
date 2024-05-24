@@ -1,4 +1,7 @@
 # Implementing-Nodejs-Crypto
+
+The files do not include the node-module folder. To install node modules, type ``npm install'' in the terminal.
+
 In today's digital world, ensuring the security of user using authentication mechanisms is necessary. Traditional methods of storing and transmitting usernames and passwords in plain text are no longer sufficient to protect sensitive information from malicious parties. This task focuses on the implementation of more secure user authentication mechanisms, emphasizing the importance of not sending or storing usernames and passwords in plain text.
 
 
