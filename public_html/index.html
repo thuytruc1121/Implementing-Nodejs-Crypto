@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Miaminicraft</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Righteous&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <style>
+        .error-message {
+            color: red;
+            font-size: 0.8em;
+        }
+
+        .valid-message {
+            color: green;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid text-center custom-brown-bg">
+        <div class="row align-items-center py-4">
+            <div class="col-md-4">
+                <div class="social-media">
+                    <a href="https://facebook.com">
+                        <img src="facebook.png" alt="Facebook" class="social-icon">
+                    </a>
+                    <a href="https://twitter.com">
+                        <img src="twitter.png" alt="Twitter" class="social-icon">
+                    </a>
+                    <a href="https://instagram.com">
+                        <img src="instagram.png" alt="Instagram" class="social-icon">
+                    </a>
+                    <a href="https://youtube.com">
+                        <img src="youtube.png" alt="Youtube" class="social-icon">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <header class="mx-auto">
+                    <a href="aboutus.html">
+                        <h1>MIA MINI CRAFTS</h1>
+                    </a>
+                </header>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <div class="input-group-append">
+                        <a href="index.html"><button class="btn btn-outline-light" type="button">Login</button></a>
+                        <a href="signup.html"><button class="btn btn-outline-light" type="button">Sign Up</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 navigation-bar custom-brown-bg-2">
+
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <h3>Using the hash function by Nodejs Crypto</h3>
+        <p>After signing up, the user can log in to their account using their 'email' and 'password'. Then in the
+            <code>index.js</code> file, the checking process will happen as follows:
+        </p>
+        <pre><code>let email = hash(inemail);
+let password = hash(inpassword);
+
+db.get(query, [email], (err, row) => {
+    if (err) {
+        return next(err);
+    }
+    if (!row) {
+        // No user found with the provided email
+        return res.status(401).send({ error: 'Invalid email or password' });
+    }
+    if (password === row.password) {
+        // User successfully logged in
+        res.send('Login successful');
+    } else {
+        res.status(401).send({ error: 'Invalid email or password' });
+    }
+});</code></pre>
+        <p>If the hash of the user's password matches the one saved in the database, the user successfully logs in.</p>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center">LOGIN</h2>
+                <form class="row g-3" onsubmit="return validateForm()" novalidate action="/logingin" method="post">
+                    <!-- Email -->
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inemail" name="inemail"
+                            placeholder="name@example.com" required>
+                        <div id="emailHelp" class="form-text"></div>
+                    </div>
+                    <!-- Password -->
+                    <div class="col-md-6">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="inpassword" name="inpassword" required>
+                        <div id="passwordHelp" class="form-text"></div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-success me-2">Submit</button>
+                        <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer custom-brown-bg text-center">
+        <div class="container py-3">
+            <hr>
+            <p class="footer-heading">Connect with Us:</p>
+            <div class="social-icons">
+                <a href="https://facebook.com"><img src="facebook.png" alt="Facebook"></a>
+                <a href="https://twitter.com"><img src="twitter.png" alt="Twitter"></a>
+                <a href="https://instagram.com"><img src="instagram.png" alt="Instagram"></a>
+                <a href="https://youtube.com"><img src="youtube.png" alt="YouTube"></a>
+            </div>
+            <p>&copy; 2024 Miaminicraft. All rights reserved.</p>
+            <p>Last updated: April 2024 | Contact: <a
+                    href="mailto:mailto:s223864871@deakin.edu.au">s223864871@deakin.edu.au</a></p>
+            <hr>
+        </div>
+    </div>
+
+    <script>
+        function setValidationMessage(elementId, message, isValid) {
+            var element = document.getElementById(elementId);
+            element.textContent = message;
+            if (isValid) {
+                element.className = 'form-text valid-message';
+            } else {
+                element.className = 'form-text error-message';
+            }
+        }
+
+    </script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

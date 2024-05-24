@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Miaminicraft</title>
+    <link rel="stylesheet" href="public_html/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Righteous&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <style>
+        html {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: #f7f7f7;
+        }
+
+        .carousel-img {
+            max-height: 300px;
+            object-fit: cover;
+            margin: auto;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: auto;
+            margin-right: 8px;
+            text-decoration: none;
+        }
+
+        .navigation-bar {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            font-family: 'Righteous', sans-serif;
+            font-size: 1rem;
+            background-color: #603813;
+        }
+
+        .navigation-bar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        .navigation-bar a:hover {
+            background-color: #af8873;
+            color: #fff;
+        }
+
+        .main-header {
+            background-color: #af8873;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .main-header h1 {
+            font-size: 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .content-area {
+            background-color: #eee;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .footer {
+            background-color: #603813;
+            color: #fff;
+            padding: 20px 0;
+            font-family: 'Philosopher', sans-serif;
+        }
+
+        .footer hr {
+            border-top: 1px solid #fff;
+        }
+
+        .footer-heading {
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .social-icons img {
+            margin: 0 10px;
+            width: 32px;
+            height: auto;
+        }
+
+        .footer a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header text-center">
+        <h1>MIA MINI CRAFTS</h1>
+    </header>
+    <div class="container">
+        <div class="content-area text-center">
+            <% if (typeof rows !=='undefined' && rows.length> 0) { %>
+                <h3>
+                    <%= title %>
+                </h3>
+                <p></p>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Firstname</th>
+                            <th>Surname</th>
+                            <th>Email</th>
+                            <th>Birthday</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Postcode</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% rows.forEach(function(row) { %>
+                            <tr>
+                                <td>
+                                    <%= row.id %>
+                                </td>
+                                <td>
+                                    <%= row.fname %>
+                                </td>
+                                <td>
+                                    <%= row.sname %>
+                                </td>
+                                <td>
+                                    <%= row.password %>
+                                </td>
+                                <td>
+                                    <%= row.birthday %>
+                                </td>
+                                <td>
+                                    <%= row.address %>
+                                </td>
+                                <td>
+                                    <%= row.city %>
+                                </td>
+                                <td>
+                                    <%= row.state %>
+                                </td>
+                                <td>
+                                    <%= row.pcode %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+                <% } else { %>
+                    <h3>
+                        <%= title %>
+                    </h3>
+                    <p>
+                        <%= message %>
+                    </p>
+                    <% } %>
+        </div>
+    </div>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <hr>
+            <p class="footer-heading">Connect with Us:</p>
+            <div class="social-icons">
+                <a href="https://facebook.com"><img src="facebook.png" alt="Facebook"></a>
+                <a href="https://twitter.com"><img src="twitter.png" alt="Twitter"></a>
+                <a href="https://instagram.com"><img src="instagram.png" alt="Instagram"></a>
+                <a href="https://youtube.com"><img src="youtube.png" alt="YouTube"></a>
+            </div>
+            <p>&copy; 2024 Miaminicraft. All rights reserved.</p>
+            <p>Last updated: April 2024 | Contact: <a
+                    href="mailto:s223864871@deakin.edu.au">s223864871@deakin.edu.au</a></p>
+            <hr>
+        </div>
+    </footer>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

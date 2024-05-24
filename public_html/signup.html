@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Miaminicraft</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Righteous&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <style>
+        .error-message {
+            color: red;
+            font-size: 0.8em;
+        }
+
+        .valid-message {
+            color: green;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid text-center custom-brown-bg">
+        <div class="row align-items-center py-4">
+            <div class="col-md-4">
+                <div class="social-media">
+                    <a href="https://facebook.com">
+                        <img src="facebook.png" alt="Facebook" class="social-icon">
+                    </a>
+                    <a href="https://twitter.com">
+                        <img src="twitter.png" alt="Twitter" class="social-icon">
+                    </a>
+                    <a href="https://instagram.com">
+                        <img src="instagram.png" alt="Instagram" class="social-icon">
+                    </a>
+                    <a href="https://youtube.com">
+                        <img src="youtube.png" alt="Youtube" class="social-icon">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <header class="mx-auto">
+                    <a href="aboutus.html">
+                        <h1>MIA MINI CRAFTS</h1>
+                    </a>
+                </header>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <div class="input-group-append">
+                        <a href="index.html"><button class="btn btn-outline-light" type="button">Login</button></a>
+                        <a href="signup.html"><button class="btn btn-outline-light" type="button">Sign Up</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 navigation-bar custom-brown-bg-2">
+
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="container my-5">
+            <h2>Introduction</h2>
+
+            <h3>Security for Database</h3>
+            <p>When it comes to securing sensitive information in a database, various authentication methods and
+                cryptographic protocols for secret key generation are available. These methods ensure that user data is
+                protected from unauthorized access and breaches. For integrating security into a website, one effective
+                approach is to use a hash function.</p>
+
+            <h3>Node.js Crypto</h3>
+            <p>Node.js provides a built-in module called <code>crypto</code> that offers a wide range of cryptographic
+                functionalities. The <code>crypto</code> module supports various operations essential for implementing
+                security features in web applications:</p>
+
+            <ul>
+                <li><strong>Hash Functions:</strong> As mentioned, hash functions like <code>sha256</code> can generate
+                    unique hash values for given inputs, making it ideal for password storage.</li>
+                <li><strong>Encryption and Decryption:</strong> The <code>crypto</code> module allows for data
+                    encryption and decryption using algorithms like <code>aes-256-cbc</code>. This is useful for
+                    protecting data in transit and at rest.</li>
+                <li><strong>HMAC:</strong> Hash-based Message Authentication Code (HMAC) uses a cryptographic hash
+                    function combined with a secret key to provide message integrity and authenticity.</li>
+                <li><strong>Digital Signatures:</strong> The module supports creating and verifying digital signatures
+                    using public and private key pairs, ensuring data authenticity and integrity.</li>
+                <li><strong>Key Generation:</strong> It can generate random bytes for cryptographic operations, such as
+                    creating secure keys and initialization vectors (IVs) for encryption.</li>
+            </ul>
+
+            <p>By leveraging these capabilities, developers can implement robust security mechanisms to protect user
+                information and ensure secure communication between clients and servers.</p>
+
+            <h3>Hash Function</h3>
+            <p>A hash function is a cryptographic algorithm that transforms an input (or 'message') into a fixed-size
+                string of characters, which typically appears as a sequence of random characters. This output, known as
+                the hash value, is unique to each unique input. Hash functions are designed to be one-way, meaning it is
+                computationally infeasible to reverse the process and retrieve the original input from the hash value.
+                This makes hash functions particularly useful for securely storing passwords and other sensitive data.
+            </p>
+
+            <p>More information about the Node.js Crypto module can be found on the <a
+                    href="https://www.w3schools.com/nodejs/ref_crypto.asp">W3Schools website</a>.</p>
+
+            <h3>Implementation Example</h3>
+            <p>
+                This is a simple webpage that demonstrates how to implement and use the <strong>Node.js Crypto
+                    module</strong>.
+            </p>
+            <p>More concretely, it shows how to use the hash function from the <strong>Node.js Crypto module</strong>
+                module to <span style="color:red">hash</span> a user's email and password when signing in, and save them
+                as ciphertext.</p>
+
+            <p>The <code>sha256</code> algorithm is a widely used cryptographic hash function that produces a 256-bit
+                hash value.</p>
+            <p>To use the Node.js Crypto module, one first declares:</p>
+            <pre><code>const { createHash } = require('crypto');</code></pre>
+            <p>in the <code>index.js</code> file.</p>
+            <p>The hash function is then declared as:</p>
+            <pre><code>function hash(input) {
+    return createHash('sha256').update(input).digest('base64');
+}</code></pre>
+            <p>where <code>'sha256'</code> is the hash algorithm used, <code>update()</code> is used to input the data
+                to be hashed, and <code>digest('base64')</code> is used to output the hash in base64 encoding.</p>
+
+            <p>The form below is used to take user's information. After receiving the information from users, before
+                saving it into the database, the user's email and
+                password are hashed using the hash function.</p>
+            <p>For example, if the input password is <code>inemail, inpassword</code>, the information saved in the
+                database is:
+            </p>
+            <pre><code>let email = hash(inemail);</code></pre>
+            <pre><code>let password = hash(inpassword);</code></pre>
+
+            <p>If the user's email is <code>s223864871@deakin.edu.au</code> and password is <code>223864871</code>, the
+                information that are saved in the database, i.e. the ciphertext are
+                <code>T+mBUiFMjmTSKc6JIhAoK3pH5Cs1GaD1T1Qdv9Ftd9w=</code> and
+                <code>a9pu0tNq+aYFhsPoq+byX0+amoLG3D9FTaFXg8YCsZQ=</code>,
+                respectively.
+            </p>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center">SIGNING UP TO JOIN OUR COMMUNITY</h2>
+                <form class="row g-3" action="/signup/submit" method="post">
+                    <!-- Email -->
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inemail" name="inemail"
+                            placeholder="name@example.com" required>
+                        <div id="emailHelp" class="form-text"></div>
+                    </div>
+                    <!-- Password -->
+                    <div class="col-md-6">
+                        <label for="mobile" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="inpassword" name="inpassword" required
+                            placeholder="xxxxxxxx">
+                        <div id="mobileHelp" the="form-text"></div>
+                    </div>
+
+                    <!-- Firstname -->
+                    <div class="col-md-6">
+                        <label for="fname" class="form-label">Firstname</label>
+                        <input type="text" class="form-control" id="fname" name="fname" required>
+                        <div id="fnameHelp" class="form-text"></div>
+                    </div>
+                    <!-- Surname -->
+                    <div class="col-md-6">
+                        <label for="sname" the="form-label">Surname</label>
+                        <input type="text" class="form-control" id="sname" name="sname" required>
+                        <div id="snameHelp" class="form-text"></div>
+                    </div>
+                    <!-- Mobile -->
+                    <div class="col-md-6">
+                        <label for="mobile" class="form-label">Mobile</label>
+                        <input type="tel" class="form-control" id="mobile" name="mobile" required
+                            placeholder="+61 xxxx xxx xxx">
+                        <div id="mobileHelp" the="form-text"></div>
+                    </div>
+                    <!-- Birthday -->
+                    <div class="col-md-6">
+                        <label for="birthday" class="form-label">Birthday</label>
+                        <input type="date" class="form-control" id="birthday" name="birthday">
+                        <div id="birthdayHelp" class="form-text"></div>
+                    </div>
+                    <!-- Address -->
+                    <div class="col-12">
+                        <label for="Address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St"
+                            required>
+                        <div id="addressHelp" class="form-text"></div>
+                    </div>
+                    <!-- City -->
+                    <div class="col-md-6">
+                        <label for="City" the="form-label">City</label>
+                        <input type="text" class="form-control" id="city" name="city" required>
+                        <div id="cityHelp" the="form-text"></div>
+                    </div>
+                    <!-- State -->
+                    <div class="col-md-4">
+                        <label for="State" the="form-label">State</label>
+                        <select id="State" name="state" class="form-select" required>
+                            <option selected>Choose...</option>
+                            <option>NSW</option>
+                            <option>VIC</option>
+                            <option>ACT</option>
+                        </select>
+                    </div>
+                    <!-- Postcode -->
+                    <div class="col-md-2">
+                        <label for="Postcode" class="form-label">Postcode</label>
+                        <input type="text" class="form-control" id="Postcode" name="pcode" required>
+                        <div id="postcodeHelp" class="form-text"></div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-success me-2">Submit</button>
+                        <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <h5 class="mt-4">List of Contact</h5>
+        <p>
+            Check whether you are in our contact list or not
+        </p>
+        <div class="d-grid gap-5d-md-flex justify-content-md-center mb-4">
+            <a href="/signup/list" method="get">
+                <button class="btn btn btn-success" id="getfeedbackBtn">
+                    Retrieve Feedback From Database
+                </button>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="footer custom-brown-bg text-center">
+        <div class="container py-3">
+            <hr>
+            <p class="footer-heading">Connect with Us:</p>
+            <div class="social-icons">
+                <a href="https://facebook.com"><img src="facebook.png" alt="Facebook"></a>
+                <a href="https://twitter.com"><img src="twitter.png" alt="Twitter"></a>
+                <a href="https://instagram.com"><img src="instagram.png" alt="Instagram"></a>
+                <a href="https://youtube.com"><img src="youtube.png" alt="YouTube"></a>
+            </div>
+            <p>&copy; 2024 Miaminicraft. All rights reserved.</p>
+            <p>Last updated: April 2024 | Contact: <a
+                    href="mailto:mailto:s223864871@deakin.edu.au">s223864871@deakin.edu.au</a></p>
+            <hr>
+        </div>
+    </div>
+
+    <script>
+        function setValidationMessage(elementId, message, isValid) {
+            var element = document.getElementById(elementId);
+            element.textContent = message;
+            if (isValid) {
+                element.className = 'form-text valid-message';
+            } else {
+                element.className = 'form-text error-message';
+            }
+        }
+
+        function validateForm() {
+            event.preventDefault();
+            var hasError = false;
+
+            // Email validation
+            var email = document.getElementById('email');
+            if (!email.value.includes('@example.com')) {
+                setValidationMessage('emailHelp', 'Email must end with @example.com', false);
+                hasError = true;
+            } else {
+                setValidationMessage('emailHelp', 'Valid', true);
+            }
+
+            // Firstname validation
+            var fname = document.getElementById('fname');
+            if (fname.value.trim() === '') {
+                setValidationMessage('fnameHelp', 'Firstname cannot be empty', false);
+                hasError = true;
+            } else {
+                setValidationMessage('fnameHelp', 'Valid', true);
+            }
+
+            // Surname validation
+            var sname = document.getElementById('sname');
+            if (sname.value.trim() === '') {
+                setValidationMessage('snameHelp', 'Surname cannot be empty', false);
+                hasError = true;
+            } else {
+                setValidationMessage('snameHelp', 'Valid', true);
+            }
+
+            // Mobile phone validation
+            var mobile = document.getElementById('mobile');
+            if (!/^\+61 \d{4} \d{3} \d{3}$/.test(mobile.value)) {
+                setValidationMessage('mobileHelp', 'Mobile must follow the format +61 xxxx xxx xxx', false);
+                hasError = true;
+            } else {
+                setValidationMessage('mobileHelp', 'Valid', true);
+            }
+
+            // Address validation
+            var address = document.getElementById('inputAddress');
+            if (address.value.trim() === '') {
+                setValidationMessage('addressHelp', 'Address cannot be empty', false);
+                hasError = true;
+            } else {
+                setValidationMessage('addressHelp', 'Valid', true);
+            }
+
+            // City validation
+            var city = document.getElementById('inputCity');
+            if (city.value.trim() === '') {
+                setValidationMessage('cityHelp', 'City cannot be empty', false);
+                hasError = true;
+            } else {
+                setValidationMessage('cityHelp', 'Valid', true);
+            }
+
+            // Postcode validation
+            var postcode = document.getElementById('Postcode');
+            if (postcode.value.trim() === '' || !/^\d{4}$/.test(postcode.value)) {
+                setValidationMessage('postcodeHelp', 'Postcode must be 4 digits', false);
+                hasError = true;
+            } else {
+                setValidationMessage('postcodeHelp', 'Valid', true);
+            }
+
+            return !hasError;
+        }
+    </script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
