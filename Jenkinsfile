@@ -1,10 +1,14 @@
 pipeline {
     agent any
+    tools {
+        maven 'maven'
+    }
     stages {
         // Stage 1: Build
         stage('Build') {
             steps {
                 echo "Building ..."
+                sh 'npm install'
             }
         }
         // Stage 2:Tests
