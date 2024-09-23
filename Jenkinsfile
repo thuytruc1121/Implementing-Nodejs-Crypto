@@ -8,10 +8,6 @@ pipeline {
                 nodejs('Nodejs') {
                     echo "Building the application..."
                     sh 'npm install'
-
-                    // Docker build and tag
-                    echo "Building Docker image..."
-                    sh 'docker build -t my-nodejs-app:latest .'
                 }   
             }
         }
