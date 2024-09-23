@@ -1,13 +1,22 @@
 pipeline {
     agent any
+    tools {
+        nodejs "NodeJS 14" 
+    }
 
     stages {
+        stage('Checkout') {
+            steps {
+                // Pulls code from GitHub
+                git branch: 'main', url: 'https://github.com/thuytruc1121/Implementing-Nodejs-Crypto.git'
+            }
+        }
+        
         // Stage 1: Build
         stage('Build') {
             steps {
-                nodejs(nodeJSInstallationName: 'Node 6.x', configId: '<config-file-provider-id>') {
-                    sh 'npm config ls'
-                }
+                echo "Building the application..."
+                //sh 'npm run build'
             }
         }
         // Stage 2:Tests
