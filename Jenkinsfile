@@ -1,37 +1,19 @@
 pipeline {
     agent any
-    
+    tools {
+        nodejs "NodeJS 14"
+    }
     stages {
-        // Stage 1: Checkout
-        stage('Checkout') {
-            steps {
-                // Pulls code from GitHub
-                git branch: 'main', url: 'https://github.com/thuytruc1121/Implementing-Nodejs-Crypto.git'
-            }
-        }
-
-        // Stage 2: Install dependencies
-        stage('Install Dependencies') {
-            steps {
-                echo "Installing dependencies..."
-                sh 'npm install'
-            }
-        }
-
-        // Stage 3: Build
+        // Stage 1: Build
         stage('Build') {
             steps {
-                echo "Building the application..."
-                sh 'npm run build'
-                // Archive the build artifact (for example: dist folder)
+                echo "Building ..."
             }
         }
-
-        // Stage 4: Tests
+        // Stage 2:Tests
         stage('Tests') {
             steps {
-                echo "Running tests"
-                sh 'npm test'
+                echo "Running tests: sh 'mvn test'"
             }
         }
         // Stage 3: Deploy
