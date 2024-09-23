@@ -1,14 +1,13 @@
 pipeline {
     agent any
-    tools {
-        maven 'maven'
-    }
+
     stages {
         // Stage 1: Build
         stage('Build') {
             steps {
-                echo "Building ..."
-                sh 'npm install'
+                nodejs(nodeJSInstallationName: 'Node 6.x', configId: '<config-file-provider-id>') {
+                    sh 'npm config ls'
+                }
             }
         }
         // Stage 2:Tests
