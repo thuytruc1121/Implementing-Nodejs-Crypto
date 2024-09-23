@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    tools {
-        nodejs "NodeJS 14"
-    }
+    
     stages {
         // Stage 1: Checkout
         stage('Checkout') {
@@ -26,7 +24,6 @@ pipeline {
                 echo "Building the application..."
                 sh 'npm run build'
                 // Archive the build artifact (for example: dist folder)
-                archiveArtifacts artifacts: 'dist/**/*', allowEmptyArchive: true
             }
         }
 
