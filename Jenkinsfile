@@ -31,5 +31,5 @@ pipeline {
                 echo "Deploying to production: sh 'aws ec2 run-instances ...'"
             }
         }
-    }
 }
+
